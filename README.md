@@ -12,9 +12,9 @@ on `127.0.0.1:51999`.
 
 ## Easy installation
 
-You can install an RPM compatible with Amazon Linux 2 as follows:
+You can install an RPM compatible with **Amazon Linux 2** as follows:
 
-    yum install -y <url>
+    yum install -y https://github.com/glassechidna/imdsblock/releases/download/0.1.0/imdsblock_0.1.0_linux_amd64.rpm
 
 It will install the reverse proxy and a systemd unit file that runs the daemon 
 and configures iptables rules on your behalf. Only installation is necessary, 
