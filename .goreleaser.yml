@@ -1,0 +1,28 @@
+builds:
+  - goos: [linux]
+    goarch: [amd64]
+    env: [CGO_ENABLED=0]
+archives:
+  - replacements:
+      linux: Linux
+      amd64: x86_64
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+nfpms:
+  - vendor: glassechidna
+    homepage: https://github.com/glassechidna/imdsblock
+    maintainer: Aidan Steele <aidan.steele@glassechidna.com.au>
+    description: >
+      imdsblock denies Docker containers access to EC2 instance
+      profile credentials while still retaining access to the rest
+      of the EC2 instance metadata service.
+    formats: [rpm]
+    bindir: /usr/libexec
+    scripts:
+      postinstall: postinstall.sh
+    files:
+      imdsblock.service: /usr/lib/systemd/system/imdsblock.service

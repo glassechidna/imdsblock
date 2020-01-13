@@ -1,0 +1,15 @@
+[Unit]
+Description=imdsblock metadata proxy
+Documentation=https://github.com/glassechidna/imdsblock
+Requires=docker.service
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStartPre=/usr/libexec/imdsblock pre-start
+ExecStart=/usr/libexec/imdsblock start
+ExecStopPost=/usr/libexec/imdsblock post-stop
+
+[Install]
+WantedBy=multi-user.target
